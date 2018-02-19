@@ -59,4 +59,9 @@ class Student
       self.new_from_db(row)
     end.first
   end
+
+  def update
+    sql = "UPDATE songs SET name = ?, album = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.album, self.id)
+  end
 end
